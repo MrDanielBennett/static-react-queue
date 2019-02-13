@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import TicketList from './TicketList';
+import { Switch, Route } from 'react-router-dom';
+import NewTicketForm from './NewTicketForm';
 
 function App(){
   return (
@@ -11,11 +13,15 @@ function App(){
             font-family: Helvetica;
             color: white;
           }
-            `}</style>
+          `}</style>
       <Header/>
+      <Switch>
+        <Route exact path='/' component={TicketList} />
+        <Route path='/newticket' component={NewTicketForm} />
+      </Switch>
       <TicketList/>
     </div>
-  );
-}
+    );
+  }
 
-export default App;
+  export default App;
